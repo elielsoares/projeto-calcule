@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+        <SCRIPT>
+
+    var vogaisArray = {	
+                "V_a":1,  "V_e":5,"V_i":1, "V_o":7, "V_u":6,
+    };
+    
+    var consoantesArray = {
+                "V_b":2, "V_c":3, "V_d":4, "V_f":8, "V_g":3,"V_h":5,"V_j":1, "V_k":2, "V_l":3, "V_m":4, "V_n":5, "V_p":8,"V_q":1, "V_r":2, "V_s":3, "V_t":4, "V_v":6, "V_w":6, "V_x":5, "V_y":1, "V_z":7
+    };
+         function displayValue()
+          {
+            var name = document.getElementById("txtName").value;
+            name = name.toLowerCase();
+            var consoantes = document.getElementById("consoantes");
+            var vogais = document.getElementById("vogais");
+            var count = 0;
+            for (var i=0;i<name.length;i++)
+            {
+                if (consoantes && (consoantesArray["V_"+name[i]]) ) { count = count + consoantesArray["V_"+name[i]]}
+                if (vogais && (vogaisArray["V_"+name[i]]) ) { count = count + vogaisArray["V_"+name[i]]}
+            }
+            
+        var sCount = count.toString();
+        count=0;
+        for (var j=0;j<sCount.length;j++){
+        count=count+parseInt(sCount[j]);
+        }
+    
+        var lCount = count.toString();
+        count=0;
+        for (var j=0;j<lCount.length;j++){
+        count=count+parseInt(lCount[j]);
+        }
+    
+            document.getElementById("value").innerHTML=count;
+            
+          }
+        </SCRIPT>
+<body>
+  <main>
+    <h1>CALCULE</h1>
+    
+    <div class="divNome">
+      <label for="nome">Nome </label>
+      <input type="text" id="txtName" />
+    </div>
+
+    <div class="divCalc">
+      <button onClick="displayValue()" type="button">CALCULAR</button>
+    </div>
+      <print="vogais" id="vogais" />
+      <print="consoantes" id="consoantes"/>
+      <P id="value"></P>
+  </main>
+</body>
+</html>
